@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="ISO-8859-1">
+<title>Insert title here</title>
+</head>
+<style>
+    body {
+        font-family: Arial, sans-serif;
+        background-color: #f4f4f4;
+        margin: 0;
+        padding: 0;
+        display: flex;
+        flex-direction:column;
+        justify-content: center;
+        align-items: center;
+        height: 100vh;
+    }
+
+    form {
+        background: #fff;
+        padding: 20px;
+        border-radius: 8px;
+        box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        max-width: 400px;
+        width: 100%;
+    }
+
+    h2 {
+        text-align: center;
+        margin-bottom: 20px;
+        color: #333;
+    }
+
+    input {
+        width: calc(100% - 22px);
+        padding: 10px;
+        margin: 10px 0;
+        border: 1px solid #ccc;
+        border-radius: 4px;
+        box-sizing: border-box;
+    }
+
+    button {
+        width: 100%;
+        padding: 10px;
+        background-color: #28a745;
+        border: none;
+        border-radius: 4px;
+        color: white;
+        font-size: 16px;
+        cursor: pointer;
+    }
+
+    button:hover {
+        background-color: #218838;
+    }
+
+    a {
+        display: block;
+        text-align: center;
+        margin-top: 10px;
+        color: #007bff;
+        text-decoration: none;
+    }
+
+    a:hover {
+        text-decoration: underline;
+    }
+</style>
+<body>
+
+<form action="userregistration">
+<h2>Register your self as user</h2>
+	<input required="required" pattern="[A-Za-z]+" title="Username must contain only letters (A-Z, a-z)" name="username" placeholder="Enter your name">
+	<input required="required" pattern="[a-z0-9]+@gmail.com" title="Email must be a valid @gmail.com address and only contain lowercase letters"  name="email" placeholder="Enter your email">
+	<input required="required" pattern=".{8,}" title="Password must be at least 8 characters long" name="password" placeholder="Enter your password"> 
+	<input required="required" type="tel" name="mobilenumber" placeholder="Enter your mobile number"  pattern="\d{10}" maxlength="10">
+	<input required="required" name="currentlocation" placeholder="Enter your current location">
+	<button type="submit">Submit</button>
+	<a href="userlogin">All ready have Account...!</a>
+	<a href="donorregistrationpage">Register as Donor</a>
+</form>
+<h2 th:text="${message}"></h2>
+</body>
+</html>

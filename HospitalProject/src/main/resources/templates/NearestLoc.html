@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="ISO-8859-1">
+<title>Insert title here</title>
+</head>
+<style>
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    background-color: #f4f4f9;
+    font-family: Arial, sans-serif;
+    padding: 20px;
+}
+
+table {
+    width: 80%;
+    border-collapse: collapse;
+    margin: 20px 0;
+    background-color: #fff;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+th {
+    background-color: #f58d3c;
+    color: white;
+    padding: 12px;
+    text-align: left;
+    border-bottom: 2px solid #ddd;
+}
+
+td {
+    padding: 12px;
+    border-bottom: 1px solid #ddd;
+    text-align: left;
+}
+
+tr:hover {
+    background-color: #f1f1f1;
+}
+
+tr:nth-child(even) {
+    background-color: #f9f9f9;
+}
+span{
+color: #dc3545;
+}
+
+</style>
+<body>
+<table>
+<h2>There is No hospitals in <span th:text="${userar2}"></span> These are the nearest hospitals to your location..!</span> </h2>
+<tr>
+<th>Hospital Name</th>
+<th>Mobile Number</th>
+<th>Area</th>
+<th>City</th>
+<th>Pincode</th>
+<th>Maps</th>
+</tr>
+<tr th:each="hospital:${bycityArea}">
+<td th:text="${hospital.hospital_name}"></td>
+<td th:text="${hospital.mobilenumber}"></td>
+<td th:text="${hospital.area}"></td>
+<td th:text="${userarea}" hidden="true"></td>
+<td th:text="${hospital.city}"></td>
+<td th:text="${hospital.pincode}"></td>
+<td ><a th:href="'https://www.google.co.in/maps/dir/' + ${userarea} + '/' + ${hospital.hospital_name}+${hospital.area}" target="_blank">Open Maps📌</a></td>
+</tr>
+</table>
+</body>
+</html>
